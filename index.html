@@ -27,6 +27,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/new-age.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
 
@@ -35,6 +36,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         <a class="navbar-brand js-scroll-trigger" href="#page-top">All About Isaiah</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
@@ -61,6 +63,7 @@
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
               <h1 class="mb-5">They hate on me, but they also hated Jesus.</h1>
+              <p class="lead">Have a blessed day. </p>
               <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Support My Dreams Here!</a>
             </div>
           </div>
@@ -177,9 +180,10 @@
 <div class="container bg-white" style="margin-bottom: 20px; padding-bottom:
 10px; padding-top: 10px;">
 
-<form method="POST"
-action="https://formspree.io/isaiahyonas@gmail.com">
+<!--form method="POST"
+action="https://formspree.io/isaiahyonas@gmail.com"-->
 
+<form id="add-user-input">
 <div class="form-group">
 <label for="inputName">Name*</label>
 <input type="text" class="form-control" name="name" id="inputName" placeholder=“*
@@ -198,7 +202,7 @@ as the required field" required>
 rows="3"></textarea>
 </div>
 
-<button type="submit" class="btn btn-primary">Send</button>
+<button class="btn btn-primary">Send</button>
 
 </form>
 </div>
@@ -245,6 +249,26 @@ rows="3"></textarea>
       </div>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+
+    <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBysZW0jNE7rw4Pf9eGLhJY2ef_1k4VmIM",
+    authDomain: "zaysapp-a58cf.firebaseapp.com",
+    databaseURL: "https://zaysapp-a58cf.firebaseio.com",
+    projectId: "zaysap3essp-a58cf",
+    storageBucket: "zaysapp-a58cf.appspot.com",
+    messagingSenderId: "339025517690"
+  };
+  firebase.initializeApp(config);
+
+// Initialize Cloud Firestore through Firebase
+var db = firebase.firestore();
+
+</script>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -255,7 +279,29 @@ rows="3"></textarea>
     <!-- Custom scripts for this template -->
     <script src="js/new-age.min.js"></script>
 
+    <script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+document.getElementById("myBtn").style.display = "block";
+} else {
+document.getElementById("myBtn").style.display = "none";
+}
+}
 
+// When the user clicks on the button, scroll to the top of the document,
+//and change the working
+function topFunction() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+document.getElementsByClassName('lead')[0].style.color = "#BE81F7";
+document.getElementsByClassName('lead')[0].style.fontSize = "3em";
+document.getElementsByClassName('lead')[0].innerHTML = 'Have a blessed day.';
+}
+</script> 
+
+<script src="js/addData.js"></script>
 
 
   </body>
