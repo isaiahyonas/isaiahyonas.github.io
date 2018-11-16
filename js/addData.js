@@ -1,9 +1,7 @@
 const form = document.querySelector('#add-user-input'); 
-form.addEventListener('submit', function(evt) {
-	evt.preventDefault();
+
+function sendData() {
 	db.collection('userInput').add({
-// 		db.collection('userInput').add({
-// createdAt: firebase.firestore.FieldValue.serverTimestamp(),
 		name: form.name.value,
 		email: form.email.value,
 		phone: form.phone.value,
@@ -13,4 +11,4 @@ form.addEventListener('submit', function(evt) {
 	form.email.value = '';
 	form.phone.value = '';
 	form.message.value = '';
-})
+}
